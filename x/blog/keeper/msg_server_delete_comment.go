@@ -4,7 +4,7 @@ package keeper
 	"context"
 	"encoding/binary"
 
-	"github.com/username/blog/x/blog/types"
+	"github.com/carmonasl/blog/x/blog/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
