@@ -28307,6 +28307,8 @@ paths:
       tags:
         - Query
 definitions:
+  carmonasl.blog.blog.MsgCreatePostResponse:
+    type: object
   carmonasl.blog.blog.Params:
     type: object
     description: Params defines the parameters for the module.
