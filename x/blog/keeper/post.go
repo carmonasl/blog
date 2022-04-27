@@ -52,3 +52,16 @@ func (k Keeper) AppendPost(ctx sdk.Context, post types.Post) uint64 {
 	k.SetPostCount(ctx, count+1)
 	return count
 }
+
+func (k Keeper) GetPost(ctx sdk.Context, id uint64) (post types.Post) {
+	// Get the store using storeKey (which is "blog") and PostKey (which is "Post-")
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte(types.PostKey))
+	// Convert the post ID into bytes
+	byteKey := make([]byte, 8)
+	binary.BigEndian.PutUint64(byteKey, id)
+	// Get the post bytes using post ID as a key
+	bz := store.Get(byteKey)
+	// Unmarshal the post bytes into the post object
+	k.cdc.MustUnmarshal(bz, &post)
+	return post
+}
