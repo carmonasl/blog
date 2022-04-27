@@ -11,12 +11,12 @@ func (k msgServer) CreatePost(goCtx context.Context, msg *types.MsgCreatePost) (
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	var post = types.Post{
-     		Creator: msg.Creator,
-     		Title:   msg.Title,
-     		Body:    msg.Body,
-  	}
-  	// Add a post to the store and get back the ID
-  	id := k.AppendPost(ctx, post)
-  	// Return the ID of the post
-  	return &types.MsgCreatePostResponse{Id: id}, nil
+		Creator: msg.Creator,
+		Title:   msg.Title,
+		Body:    msg.Body,
+	}
+	// Add a post to the store and get back the ID
+	id := k.AppendPost(ctx, post)
+	// Return the ID of the post
+	return &types.MsgCreatePostResponse{Id: id}, nil
 }
